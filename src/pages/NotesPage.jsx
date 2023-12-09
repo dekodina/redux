@@ -11,7 +11,7 @@ const NotesPage = () => {
 
   useEffect(() => {
     dispatch(getNotes());
-  }, []);
+  }, [dispatch]);
 
   const handleEdit = (id) => navigate(`/notes/${id}/edit`);
   const handleDelete = (id) =>

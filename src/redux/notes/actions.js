@@ -1,19 +1,16 @@
-import { BASE_URL } from "../../api/constants";
 import * as notes from "../../api/notes";
 
 export const getNotes = () => async (dispatch, getState) => {
-  const authorId = getState((state) => state.user.data.id);
+  const authorId = getState().user.data.id;
 
   dispatch({ type: "NOTES/LOADING" });
 
-  const params = new URLSearchParams({ authorId }).toString();
-  
-  await fetch(`${BASE_URL}/notes?${params}`)
-    .then((r) => r.json())
-    .then((notes) => dispatch({ type: "NOTES/SET", payload: notes }))
-    .catch((error) =>
-      dispatch({ type: "NOTES/ERROR", payload: error.toString() })
-    );
+  try {
+    const data = await notes.getUserNotes(authorId);
+    dispatch({ type: "NOTES/SET", payload: data });
+  } catch (error) {
+    dispatch({ type: "NOTES/ERROR", payload: error.toString() });
+  }
 };
 
 export const createNote = (title, body) => async (dispatch, getState) => {

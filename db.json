@@ -35,11 +35,18 @@
       "id": 4
     },
     {
-      "userId": 1,
-      "title": "My Createsd",
-      "body": "123",
-      "createdAt": "2022-11-18T16:02:32.235Z",
+      "userId": 6,
+      "title": "test11t",
+      "body": "test11b",
+      "createdAt": "2023-12-09T21:07:14.423Z",
       "id": 5
+    },
+    {
+      "userId": 6,
+      "title": "test22t",
+      "body": "test22b",
+      "createdAt": "2023-12-09T21:08:09.917Z",
+      "id": 6
     }
   ]
 }
